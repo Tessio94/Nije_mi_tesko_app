@@ -1,45 +1,90 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-import { Platform } from 'react-native';
+import Header from "@/components/Header";
+import TabIcon from "@/components/TabIcon";
+import { icons } from "@/constants/icons";
+import { InfoTabProvider } from "@/context/InfoTabContext";
+import { Tabs } from "expo-router";
+import React from "react";
 
-import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import TabBarBackground from '@/components/ui/TabBarBackground';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
+const _Layout = () => {
+	return (
+		<InfoTabProvider>
+			<Tabs
+				screenOptions={{
+					tabBarShowLabel: false,
+					tabBarItemStyle: {
+						width: "100%",
+						height: "100%",
+						justifyContent: "center",
+						alignItems: "center",
+					},
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
+					tabBarStyle: {
+						backgroundColor: "#558b39",
+						height: 70,
+						marginBottom: 45,
+						overflow: "hidden",
+					},
+				}}
+			>
+				<Tabs.Screen
+					name="index"
+					options={{
+						title: "Home",
+						headerShown: false,
+						tabBarItemStyle: { display: "none" },
+					}}
+				/>
+				<Tabs.Screen
+					name="info"
+					options={{
+						title: "Info",
+						header: () => <Header title="Info" type="info" />,
+						tabBarIcon: ({ focused }) => (
+							<TabIcon focused={focused} title="Info" icon={icons.home} />
+						),
+					}}
+				/>
+				<Tabs.Screen
+					name="lokacije"
+					options={{
+						title: "Lokacije",
+						header: () => <Header title="Lokacije" type="lokacija" />,
+						tabBarIcon: ({ focused }) => (
+							<TabIcon
+								focused={focused}
+								title="Lokacije"
+								icon={icons.lokacije}
+							/>
+						),
+					}}
+				/>
+				<Tabs.Screen
+					name="raspored"
+					options={{
+						title: "Raspored",
+						header: () => <Header title="Raspored" type="raspored" />,
+						tabBarIcon: ({ focused }) => (
+							<TabIcon
+								focused={focused}
+								title="Raspored"
+								icon={icons.raspored}
+							/>
+						),
+					}}
+				/>
+				<Tabs.Screen
+					name="novosti"
+					options={{
+						title: "Novosti",
+						header: () => <Header title="Novosti" type="novosti" />,
+						tabBarIcon: ({ focused }) => (
+							<TabIcon focused={focused} title="Novosti" icon={icons.novosti} />
+						),
+					}}
+				/>
+			</Tabs>
+		</InfoTabProvider>
+	);
+};
 
-  return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
-        tabBarStyle: Platform.select({
-          ios: {
-            // Use a transparent background on iOS to show the blur effect
-            position: 'absolute',
-          },
-          default: {},
-        }),
-      }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
-        }}
-      />
-    </Tabs>
-  );
-}
+export default _Layout;

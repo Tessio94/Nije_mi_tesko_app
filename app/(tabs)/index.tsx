@@ -1,75 +1,97 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import { icons } from "@/constants/icons";
+import { Image, ScrollView, Text, View } from "react-native";
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
+export default function Index() {
+	return (
+		<View className="flex-1 px-3 pt-8 pb-2 bg-white">
+			<ScrollView
+				className="flex-1 "
+				showsVerticalScrollIndicator={false}
+				contentContainerStyle={{ minHeight: "100%" }}
+			>
+				<View className="w-full px-5">
+					<Image
+						source={icons.headerLogo}
+						className="h-64 w-full max-w-full"
+						resizeMode="contain"
+					/>
+				</View>
+				<View className="flex flex-row gap-3 w-full flex-nowrap mt-4">
+					<View className="flex-1 flex flex-col gap-3 items-center justify-start">
+						<Image
+							source={icons.biograd}
+							className="w-full h-24"
+							resizeMode="contain"
+						/>
+						<Text className="uppercase text-center font-bold text-[10px]">
+							Grad{"\n"} Biograd{"\n"} na moru
+						</Text>
+					</View>
+					<View className="flex-1 flex flex-col gap-3 items-center justify-start">
+						<Image
+							source={icons.lisane}
+							className="w-full mt-[2px] h-24"
+							resizeMode="contain"
+						/>
+						<Text className="uppercase text-center font-bold text-[10px]">
+							Općina{"\n"} Lišane{"\n"} Ostrovičke
+						</Text>
+					</View>
+					<View className="flex-1 flex flex-col gap-3 items-center justify-start">
+						<Image
+							source={icons.polaca}
+							className="w-full mt-[-2px]  h-24"
+							resizeMode="contain"
+						/>
+						<Text className="uppercase text-center font-bold text-[10px]">
+							Općina{"\n"} Polača
+						</Text>
+					</View>
+					<View className="flex-1 flex flex-col gap-3 items-center justify-start">
+						<Image
+							source={icons.stankovci}
+							className="w-full  h-24"
+							resizeMode="contain"
+						/>
+						<Text className="uppercase text-center font-bold text-[10px]">
+							Općina{"\n"} Stankovci
+						</Text>
+					</View>
+					<View className="flex-1 flex flex-col gap-3 items-center justify-start">
+						<Image
+							source={icons.pakostane}
+							className="w-full mt-[-5px] h-24"
+							resizeMode="contain"
+						/>
+						<Text className="uppercase text-center font-bold text-[10px]">
+							Općina{"\n"}
+							Pakoštane
+						</Text>
+					</View>
+				</View>
 
-export default function HomeScreen() {
-  return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
-  );
+				<Image source={icons.eu} className="mx-auto mt-24 w-[120px] h-[98px]" />
+				<View className="flex flex-row w-full mt-6 px-4 gap-6">
+					<Image
+						source={icons.fondovi}
+						className="flex-1 w-full h-[50px]"
+						resizeMode="contain"
+					/>
+					<Image
+						source={icons.program}
+						className="flex-1 w-full h-[50px]"
+						resizeMode="contain"
+					/>
+				</View>
+				<View className="mt-5 px-4">
+					<Text className="text-['#1f519f'] text-[10px] font-semibold uppercase">
+						Projekt je sufinancirala europska unija iz kohezijskog fonda
+					</Text>
+					<Text className="text-black text-[10px] mt-2 text-center">
+						Sadržaj aplikacije isključiva je odgovornost Grada Biograda na Moru.
+					</Text>
+				</View>
+			</ScrollView>
+		</View>
+	);
 }
-
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
-});
