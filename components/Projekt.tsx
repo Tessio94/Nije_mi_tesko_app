@@ -1,8 +1,19 @@
 import { icons } from "@/constants/icons";
 import React from "react";
-import { Image, ScrollView, Text, View } from "react-native";
+import {
+	Image,
+	Linking,
+	ScrollView,
+	Text,
+	TouchableOpacity,
+	View,
+} from "react-native";
 
 const Projekt = () => {
+	const handleEmailPress = () => {
+		Linking.openURL("mailto:hrvoje.raspovic@biogradnamoru.hr");
+	};
+
 	return (
 		<ScrollView
 			className="w-full px-3  pb-20"
@@ -48,7 +59,7 @@ const Projekt = () => {
 					učinkovitog i cjelovitog sustava gospodarenja otpadom kao i jačanju
 					međusobne komunikacije između sudionika u projektu.
 				</Text>
-				<Text className="pb-10">
+				<Text>
 					<Text className="font-semibold text-md text-gray-700">
 						Cilj provedbe izobrazno – informativnih aktivnosti
 					</Text>{" "}
@@ -57,6 +68,53 @@ const Projekt = () => {
 					izgraditi svijest građana o važnosti promjene svojih navika za potrebe
 					odgovornog postupanja s otpadom i učinkovitog upravljanja resursima.
 				</Text>
+				<Text>
+					Time će se ojačati prepoznatljivost i znanje građana o ulozi JLS u
+					izgradnji učinkovitog i cjelovitog sustava gospodarenja otpadom kao i
+					njihova međusobna komunikacija.
+				</Text>
+				<Text>
+					Mjere koje će pomoći u ostvarenju definiranog cilja odnose se na
+					provedbu izobrazno – informativnih aktivnosti, koje proizlaze iz
+					Programa izobrazno – informativnih aktivnosti o održivom gospodarenju
+					otpadom Ministarstva zaštite okoliša i energetike.
+				</Text>
+				<Text>
+					<Text className="font-semibold text-md text-gray-700">
+						Ukupna vrijednost projekta
+					</Text>{" "}
+					je 511.042,35 kuna, dok su prihvatljivi troškovi 503.887,00 kuna.
+				</Text>
+				<Text className="border-b-[1px] border-gray-400 pb-5">
+					Projektu su dodijeljena bespovratna sredstva u iznosu od 428.303,63
+					kuna, što predstavlja 84,9999365% ukupno prihvatljivih troškova.
+				</Text>
+				<Text className="pb-5">
+					Predviđeno trajanje projekta je 20 mjeseci, odnosno razdoblje provedbe
+					projekta traje zaključno do 26.06.2020. godine.
+				</Text>
+				<View>
+					<Text className="font-semibold text-md text-gray-700 mb-2">
+						Kontakt osoba za više informacija:
+					</Text>
+					<View className="flex flex-row gap-5 mb-2">
+						<Text className="ml-5">•</Text>
+						<Text>Hrvoje Raspović</Text>
+					</View>
+					<View className="flex flex-row gap-5 mb-2 relative">
+						<Text className="ml-5">•</Text>
+						<TouchableOpacity onPress={handleEmailPress}>
+							<Text>hrvoje.raspovic@biogradnamoru.hr</Text>
+						</TouchableOpacity>
+						<View className="bg-theme1 h-[1px] w-[218px] left-[40px] top-6 absolute"></View>
+					</View>
+					<View className="flex flex-row gap-5 mb-2">
+						<Text className="ml-5">•</Text>
+						<Text>
+							Trg Kralja Tomislava 5,{"\n"} 23210 Grad Biograd na Moru
+						</Text>
+					</View>
+				</View>
 			</View>
 		</ScrollView>
 	);

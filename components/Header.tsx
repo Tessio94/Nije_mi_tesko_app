@@ -1,8 +1,7 @@
-import { icons } from "@/constants/icons";
 import { useInfoTab } from "@/context/InfoTabContext";
 import { cn } from "@/utils/cn";
 import React from "react";
-import { Image, Pressable, Text, View } from "react-native";
+import { Pressable, Text, View } from "react-native";
 
 const Header = ({ title, type }: { title: string; type: string }) => {
 	const { content, setContent, location, setLocation } = useInfoTab();
@@ -11,17 +10,17 @@ const Header = ({ title, type }: { title: string; type: string }) => {
 		<>
 			<View className="bg-theme1 mt-10 flex-row py-5 px-5 justify-between">
 				<View className="flex flex-row gap-8 items-end">
-					<Image source={icons.leftArr} className="w-[15px] h-[24px]" />
+					{/* <Image source={icons.leftArr} className="w-[15px] h-[24px]" /> */}
 					<Text className="text-white text-3xl  leading-none">{title}</Text>
 				</View>
-				<View className="flex flex-row gap-8 items-end">
+				{/* <View className="flex flex-row gap-8 items-end">
 					<Image source={icons.search} className="h-[24px] w-[24px]" />
 					<Image source={icons.threeDots} className="h-[24px] w-[6px]" />
-				</View>
+				</View> */}
 			</View>
 			{type === "info" && (
 				<View className="bg-theme1 flex flex-row justify-between">
-					<Pressable
+					{/* <Pressable
 						className={cn(
 							"w-[50%] py-4",
 							content === "tesko" && "border-b-2 border-b-white"
@@ -31,7 +30,7 @@ const Header = ({ title, type }: { title: string; type: string }) => {
 						<Text className="uppercase text-white font-semibold text-center">
 							Nije mi teško
 						</Text>
-					</Pressable>
+					</Pressable> */}
 					<Pressable
 						className={cn(
 							"w-[50%] py-4",
@@ -58,7 +57,7 @@ const Header = ({ title, type }: { title: string; type: string }) => {
 							Karta
 						</Text>
 					</Pressable>
-					<Pressable
+					{/* <Pressable
 						className={cn(
 							"w-[50%] py-4",
 							location === "popis" && "border-b-2 border-b-white"
@@ -68,7 +67,7 @@ const Header = ({ title, type }: { title: string; type: string }) => {
 						<Text className="uppercase text-white font-semibold text-center">
 							Popis
 						</Text>
-					</Pressable>
+					</Pressable> */}
 				</View>
 			)}
 		</>

@@ -1,5 +1,4 @@
 import Karta from "@/components/Karta";
-import Popis from "@/components/Popis";
 import { useInfoTab } from "@/context/InfoTabContext";
 import React from "react";
 import { View } from "react-native";
@@ -10,7 +9,7 @@ const Info = () => {
 	return (
 		<View>
 			{location === "karta" && <Karta />}
-			{location === "popis" && <Popis />}
+			{/* {location === "popis" && <Popis />} */}
 		</View>
 	);
 };

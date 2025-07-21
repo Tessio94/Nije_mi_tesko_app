@@ -1,9 +1,9 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, ReactNode, useContext, useState } from "react";
 
 const InfoTabContext = createContext<any>(null);
 
-export const InfoTabProvider = ({ children }) => {
-	const [content, setContent] = useState("tesko");
+export const InfoTabProvider = ({ children }: { children: ReactNode }) => {
+	const [content, setContent] = useState("projekt");
 	const [location, setLocation] = useState("karta");
 
 	return (
